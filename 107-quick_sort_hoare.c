@@ -9,7 +9,7 @@
  *
  * Return: void
  */
-void swap(int *array, size_t size, int *a, int *b)
+void sswap(int *array, size_t size, int *a, int *b)
 {
 if (*a != *b)
 {
@@ -41,7 +41,7 @@ while (array[++i] < pivot)
 while (array[--j] > pivot)
 ;
 if (i < j)
-swap(array, size, &array[i], &array[j]);
+sswap(array, size, &array[i], &array[j]);
 else if (i >= j)
 break;
 }
