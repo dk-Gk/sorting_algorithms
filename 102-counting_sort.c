@@ -1,4 +1,4 @@
-.#include "sort.h"
+#include "sort.h"
  /**
   *integer_count- number of times integer appears in an array
   *

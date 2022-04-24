@@ -1,6 +1,26 @@
 #include "sort.h"
 
 /**
+ * swap - swaps 2 int values
+ * @array: the integer array to sort
+ * @size: the size of the array
+ * @a: address of first value
+ * @b: address of second value
+ *
+ * Return: void
+ */
+void swap(int *array, size_t size, int *a, int *b)
+{
+if (*a != *b)
+{
+*a = *a + *b;
+*b = *a - *b;
+*a = *a - *b;
+print_array((const int *)array, size);
+}
+}
+
+/**
  * LomutoPartion - a function that partions an array
  * @array: the array to be sorted
  * @size: the size of the array
@@ -12,23 +32,16 @@ size_t LomutoPartion(int *array, size_t size, ssize_t lo, ssize_t hi)
 {
 size_t p = lo;
 int pivot = array[hi];
-int i, temp;
-for (i = lo; i < hi; i++)
+int i, j = array[hi];
+for (i = j = lo; i < hi; i++)
 {
-if (array[i] <= pivot)
+if (array[i] < pivot)
 {
-temp = array[i];
-array[i] = array[p];
-array[p] = temp;
-print_array(array, size);
-p++;
+swap(array, size, &array[i], &array[j++]);
 }
 }
-temp = array[p];
-array[p] = array[hi];
-array[hi] = temp;
-print_array(array, size);
-return (p);
+swap(array, size, &array[j], &array[hi]);
+return (j);
 }
 
 /**
@@ -46,7 +59,6 @@ if (lo < hi)
 size_t p = LomutoPartion(array, size, lo, hi);
 qs(array, size, lo, p - 1);
 qs(array, size, p + 1, hi);
-print_array(array, size);
 }
 }
 
@@ -58,7 +70,7 @@ print_array(array, size);
  */
 void quick_sort(int *array, size_t size)
 {
-size_t l = 0;
-size_t h = size - 1;
-qs(array, size, l, h);
+if (!array || !size)
+return;
+qs(array, size, 0, size - 1);
 }

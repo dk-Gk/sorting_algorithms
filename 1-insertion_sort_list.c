@@ -26,8 +26,10 @@ t2->next = t1;
  */
 void insertion_sort_list(listint_t **list)
 {
-listint_t *t1 = (*list)->next;
+listint_t *t1;
 listint_t *t2;
+
+t1 = (*list)->next;
 if (!list || !*list || !(*list)->next)
 return;
 while (t1)

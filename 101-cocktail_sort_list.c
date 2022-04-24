@@ -8,14 +8,14 @@
  */
 void swap(listint_t *first, listint_t *second)
 {
-  if (first->prev)
-    first->prev->next = second;
-  if (second->next)
-    second->next->prev = first;
-  first->next = second->next;
-  second->prev = first->prev;
-  first->prev = second;
-  second->next = first;
+if (first->prev)
+first->prev->next = second;
+if (second->next)
+second->next->prev = first;
+first->next = second->next;
+second->prev = first->prev;
+first->prev = second;
+second->next = first;
 }
 
 /**
