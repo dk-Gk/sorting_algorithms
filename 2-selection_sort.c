@@ -14,9 +14,9 @@ if (!array || !size)
 return;
 for (i = 0; i < size - 1; i++)
 {
-for (j = size - 1, min = i+1; j > i; j--)
+for (j = size - 1, min = i + 1; j > i; j--)
 {
-if (array[min] > array[j])
+if (array[j] < array[min])
 {
 min = j;
 }
